@@ -1,0 +1,19 @@
+{
+  "name": "toddelicious-truck-website",
+  "version": "1.0.0",
+  "description": "Official interactive website for toddelicious.truck - Norfolk's craft smash burgers & street eats on wheels.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "food-truck",
+    "smash-burgers",
+    "toddelicious",
+    "street-food",
+    "norfolk"
+  ],
+  "author": "Toddelicious Truck",
+  "license": "MIT"
+}

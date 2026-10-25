@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&family=Bebas+Neue&display=swap');
+
+:root {
+  --brand-green-light: #2bd45e;
+  --brand-green: #1ea84b;
+  --brand-green-dark: #146132;
+  --brand-green-darker: #0d3e20;
+  --brand-gold: #fbbf24;
+  --brand-orange: #f97316;
+  --brand-charcoal: #111827;
+  --brand-cream: #faf7f2;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+.font-heading {
+  font-family: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-impact {
+  font-family: 'Bebas Neue', 'Syne', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Hero Background - Faithful to user mockup */
+.hero-gradient-bg {
+  background: radial-gradient(circle at 50% 35%, #2ad05c 0%, #1ea84b 45%, #137436 85%, #0e5427 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 25%, rgba(255, 255, 255, 0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Giant background watermark letters */
+.flavor-pop-watermark {
+  font-family: 'Bebas Neue', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(5.5rem, 16vw, 15.5rem);
+  line-height: 0.85;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+.flavor-pop-ghost {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(6rem, 17vw, 17rem);
+  color: rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+/* Floating animation for central burger */
+@keyframes floatBurger {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-0.5deg);
+  }
+}
+
+.animate-float-burger {
+  animation: floatBurger 5s ease-in-out infinite;
+}
+
+/* Burger shadow on ground */
+.burger-contact-shadow {
+  background: radial-gradient(ellipse at center, rgba(13, 62, 32, 0.45) 0%, rgba(13, 62, 32, 0.15) 50%, transparent 75%);
+  filter: blur(14px);
+}
+
+/* Hotspot markers */
+.hotspot-pin {
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotspot-pin::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #146132;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.hotspot-pin::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  animation: pulsePin 2.2s infinite;
+}
+
+@keyframes pulsePin {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.hotspot-pin:hover {
+  transform: scale(1.25);
+  background: #ffffff;
+}
+
+.hotspot-pin:hover::after {
+  background: #f97316;
+  transform: scale(1.2);
+}
+
+/* Callout connector line */
+.callout-line {
+  position: relative;
+  display: inline-block;
+}
+
+.callout-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  width: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Hero Bottom Sheet Card */
+.hero-bottom-sheet {
+  background: #ffffff;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.04);
+}
+
+/* Notepad Order Card - exactly like mockup */
+.notepad-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.notepad-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.notepad-spiral {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.notepad-ring {
+  width: 8px;
+  height: 18px;
+  background: linear-gradient(180deg, #94a3b8 0%, #cbd5e1 50%, #64748b 100%);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 100K Stats Card - exactly like mockup */
+.stats-badge-card {
+  background: #14532d;
+  color: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 14px 35px rgba(20, 83, 45, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-badge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(20, 83, 45, 0.4);
+}
+
+/* Order Now CTA button */
+.btn-order-now {
+  background-color: #14532d;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 14px 36px;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(10, 48, 23, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-order-now:hover {
+  background-color: #0f3d21;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(10, 48, 23, 0.45);
+}
+
+/* View Menu Button in Nav */
+.btn-view-menu {
+  background-color: #ffffff;
+  color: #831843;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.btn-view-menu:hover {
+  background-color: #fdf2f8;
+  color: #9d174d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Glowing Live Truck Dot */
+.live-truck-pulse {
+  position: relative;
+  display: inline-flex;
+}
+
+.live-truck-pulse::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #22c55e;
+  animation: livePing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.75;
+}
+
+@keyframes livePing {
+  75%, 100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Menu card hover effect */
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Toast alert */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Instagram card overlay */
+.insta-tile:hover .insta-overlay {
+  opacity: 1;
+}
+
+.insta-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
